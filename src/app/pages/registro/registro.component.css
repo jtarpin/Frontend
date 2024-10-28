@@ -1,0 +1,11 @@
+.inputStyle {
+  background-color: #000000; /* Color de fondo oscuro */
+  color: white;           /* Color del texto blanco */
+  border: 1px solid #555; /* Color del borde */
+  padding: 0.5rem;        /* Espaciado interno */
+  border-radius: 0.25rem; /* Bordes redondeados */
+}
+
+.inputStyle::placeholder {
+  color: #aaa; /* Color del placeholder */
+}

@@ -1,0 +1,53 @@
+<div class="flex justify-center mt-6">
+
+
+    <div>
+
+        <div class="flex sm:justify-start">
+            <h3 class="font-bold text-3xl text-white">Iniciar Sesión</h3>
+        </div>
+
+
+        <form [formGroup]="formLogin" autocomplete="off" class="mt-4">
+
+
+            <div class="mt-6">
+                <label class="text-white">Email</label>
+                <input
+                    class="inputStyle mt-1 w-full sm:w-[27.5rem]"
+                    type="text"
+                    formControlName="email"
+                    required
+                />
+            </div>
+
+
+
+            <div class="mt-6">
+                <label class="text-white">Contraseña</label>
+                <input
+                    class="inputStyle mt-1 w-full sm:w-[27.5rem]"
+                    type="password"
+                    formControlName="password"
+                    required
+                />
+            </div>
+
+
+            <div class="mt-6">
+                <button
+                    class="w-full h-10 rounded-lg text-black text-xl "
+                    [ngClass]="{'bg-[#ffffff]': formLogin.valid, 'bg-[#808080]': !formLogin.valid}"
+                    (click)="enviarDatos()"
+                    [disabled]="!formLogin.valid">
+                    Iniciar Sesion
+                </button>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+</div>

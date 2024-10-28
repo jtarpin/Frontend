@@ -1,0 +1,42 @@
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light flex justify-between">
+  
+  
+  <img src="assets/utn-svg.svg" routerLink="" class="w-12 h-12" alt="">
+  
+  
+
+  <div class="">
+    <button type="button" class="btn btn-primary" routerLink="registro">Registro</button>
+    <button type="button" class="btn btn-primary" routerLink="login">Login</button>
+  </div>
+
+
+</nav> -->
+
+<nav class="m-0">
+  <mat-toolbar>
+
+    <mat-toolbar-row class="flex justify-between">
+
+      <img src="assets/utn-svg.svg" routerLink="" class="w-12 h-12" alt="">
+      <!-- <img src="https://venti.com.ar/static/media/headerVentiLogo.f2fde061.svg" style="width: 8rem;" routerLink=""> -->
+
+
+
+      <button mat-raised-button [matMenuTriggerFor]="menu" class="w-36 bg-black text-white">
+        Ingresar
+      </button>
+      
+      <mat-menu #menu="matMenu" class="w-36">
+        <button mat-menu-item routerLink="login" class="txt ron">Iniciar Sesion</button>
+        <button mat-menu-item routerLink="registro">Registrarse</button>
+      </mat-menu>
+
+
+    </mat-toolbar-row>
+
+  </mat-toolbar>
+</nav>
+
+
+<router-outlet></router-outlet>

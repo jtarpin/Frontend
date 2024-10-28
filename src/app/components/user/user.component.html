@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill">
+  <mat-label>Operario</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let tipo of User" [value]="tipo.id_user">
+      {{ tipo.username }}
+    </mat-option>
+  </mat-select>
+
+</mat-form-field>

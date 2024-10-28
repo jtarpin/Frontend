@@ -1,0 +1,109 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BOTON Y PANEL */
+.mat-mdc-raised-button {
+    border-radius: 0.5rem !important;
+    width: 10rem !important;
+}
+
+.mat-mdc-menu-panel {
+    width: 10rem !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ESTO SACA EL DIV AGREGADO ABAJO DE LOS MAT-FORM-FIELD */
+.mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+}
+
+
+.mdc-notched-outline__notch {
+    /* Asegura que no se muestre la línea en el notch */
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* INPUT PERSONALIZADO */
+.inputStyle {
+    display: block;
+    height: 35px !important;
+
+    padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+    font-size: 1rem;
+
+    border-radius: 5px;
+    border: none;
+
+    /* background-color: #E8E8E8; */
+    background-color: #FFFFFF;
+
+    outline-width: 0px !important;
+
+    &:focus {
+        outline-width: 0;
+        background: rgba(255, 255, 255, 0.15);
+        transition: background 0.5s;
+        border: solid 2px #ffffff !important;
+    }
+
+}
+
+/* PARA RESPONSIVE */
+.transition-propia {
+    transition: 0.5s ease-in-out;
+}

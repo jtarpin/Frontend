@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill">
+  <mat-label>Pisos</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let tipo of Floor" [value]="tipo.id_floor">
+      {{ tipo.name }}
+    </mat-option>
+  </mat-select>
+
+</mat-form-field>

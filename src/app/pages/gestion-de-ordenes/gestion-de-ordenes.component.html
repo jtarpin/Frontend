@@ -1,0 +1,169 @@
+<main>
+  <section class="grid-container">
+    <div class="card" (click)="mostrarStepperHandler()">Crear Orden</div>
+    <div class="card">Ver Ordenes</div>
+  </section>
+</main>
+
+
+
+<div class="layoutBody" *ngIf="mostrarStepper">
+
+
+  <div class="izquierda">
+
+    <h6 class="crear-orden-txt">CREAR ORDEN DE TRABAJO</h6>
+    <hr>
+
+
+    <form [formGroup]="formulario_OrdenTrabajo" class="flex justify-between mt-4">
+
+      <div>
+        <ng-template matStepLabel>Tipo de Activo</ng-template>
+        <h4 class="mt-2 mb-2">Seleccione el tipo de activo</h4>
+        <mat-form-field>
+          <mat-label>Activo</mat-label>
+          <mat-select formControlName="tipo">
+            <app-asset-type (tiposDeActivoChange)="onTiposDeActivoChange($event)"></app-asset-type>
+            <mat-option *ngFor="let tipo of tiposDeActivo" [value]="tipo.name">
+              {{ tipo.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <div>
+        <ng-template matStepLabel>Edificio</ng-template>
+        <h4 class="mt-2 mb-2">Seleccione el Edificio</h4>
+        <mat-form-field>
+          <mat-label>Edificio</mat-label>
+          <mat-select formControlName="edificio">
+            <app-edifice (EdificesChange)="onEdificesChange($event)"></app-edifice>
+            <mat-option *ngFor="let tipo of Edifices" [value]="tipo.name">
+              {{ tipo.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </form>
+
+
+
+    <form [formGroup]="formulario_OrdenTrabajo" class="flex justify-between mt-4">
+
+      <div>
+        <ng-template matStepLabel>Piso</ng-template>
+        <h4 class="mt-2 mb-2">Seleccione el Piso</h4>
+        <mat-form-field>
+          <mat-label>Piso</mat-label>
+          <mat-select formControlName="piso">
+            <app-floor (PisosChange)="onPisosChange($event)"></app-floor>
+            <mat-option *ngFor="let tipo of Floor" [value]="tipo.name">
+              {{ tipo.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+
+      <div>
+        <ng-template matStepLabel>Sector</ng-template>
+        <h4 class="mt-2 mb-2">Seleccione el Sector</h4>
+        <mat-form-field>
+          <mat-label>Sector</mat-label>
+          <mat-select formControlName="sector">
+            <app-sector (SectorChange)="onSectorChange($event)"></app-sector>
+            <mat-option *ngFor="let tipo of Sector" [value]="tipo.name">
+              {{ tipo.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+    </form>
+
+
+    <form [formGroup]="formulario_OrdenTrabajo" class="flex justify-between mt-4">
+
+      <div>
+
+        <ng-template matStepLabel>Ubicacion</ng-template>
+        <h4 class="mt-2 mb-2">Seleccione la Ubicacion</h4>
+        <mat-form-field>
+          <mat-label>Ubicacion</mat-label>
+          <mat-select formControlName="ubicacion">
+            <app-site (SiteChange)="onSiteChange($event)"></app-site>
+            <mat-option *ngFor="let tipo of Site" [value]="tipo.name">
+              {{ tipo.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+
+
+      <div>
+
+        <ng-template matStepLabel>Tipo de Tarea</ng-template>
+        <h4 class="mt-2 mb-2">Seleccione el tipo de tarea</h4>
+        <mat-form-field>
+          <mat-label>Tarea</mat-label>
+          <mat-select formControlName="tarea">
+            <app-task-type (TaskTypeChange)="onTaskTypeChange($event)"></app-task-type>
+            <mat-option *ngFor="let tipo of TaskType" [value]="tipo.name">
+              {{ tipo.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
+
+
+    </form>
+
+
+    <form [formGroup]="formulario_OrdenTrabajo" class="mt-4">
+      <div>
+        <ng-template matStepLabel>Operario</ng-template>
+        <h4 class="mt-2 mb-2">Seleccione el Operario</h4>
+        <mat-form-field class="w-full">
+          <mat-label>Operario</mat-label>
+          <mat-select formControlName="operario">
+            <app-user (UserChange)="onUserChange($event)"></app-user>
+            <mat-option *ngFor="let tipo of User" [value]="tipo.username">
+              {{ tipo.username }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+
+
+    <button (click)="generarPDF()" class="px-6 py-3 mt-4 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-white focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50">Guardar y Generar PDF</button>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="derecha">
+    <div class="h-full w-full">
+      <iframe [src]="pdfSrc" width="100%" height="100%" style="background-color: #ECECEC; border-style: none;"></iframe>
+    </div>
+  </div>
+
+
+
+</div>

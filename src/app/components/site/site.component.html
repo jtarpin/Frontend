@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill">
+  <mat-label>Ubicacion</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let tipo of Site" [value]="tipo.id_site">
+      {{ tipo.name }}
+    </mat-option>
+  </mat-select>
+
+</mat-form-field>
